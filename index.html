@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <main class="glass-container">
+        <nav class="glass-nav">
+            <button class="nav-btn active" data-target="clock-view" title="Clock"><i class="fa-regular fa-clock"></i></button>
+            <button class="nav-btn" data-target="stopwatch-view" title="Stopwatch"><i class="fa-solid fa-stopwatch"></i></button>
+            <button class="nav-btn" data-target="calendar-view" title="Calendar"><i class="fa-regular fa-calendar"></i></button>
+            <button class="nav-btn" data-target="settings-view" title="Settings"><i class="fa-solid fa-sliders"></i></button>
+        </nav>
+
+        <section id="clock-view" class="view active">
+            <div class="clock-display">
+                <div class="time-wrapper">
+                    <span id="hours">12</span><span class="colon">:</span><span id="minutes">00</span><span class="colon">:</span><span id="seconds">00</span>
+                    <span id="ampm">AM</span>
+                </div>
+                <div id="date-display" class="date-subtitle">Monday, January 1</div>
+            </div>
+        </section>
+
+        <section id="stopwatch-view" class="view">
+            <div class="stopwatch-display">
+                <div class="time-wrapper large">
+                    <span id="sw-minutes">00</span><span class="colon">:</span><span id="sw-seconds">00</span><span class="colon small">.</span><span id="sw-milliseconds">00</span>
+                </div>
+                <div class="controls">
+                    <button id="sw-start" class="control-btn play"><i class="fa-solid fa-play"></i></button>
+                    <button id="sw-pause" class="control-btn pause hidden"><i class="fa-solid fa-pause"></i></button>
+                    <button id="sw-reset" class="control-btn reset"><i class="fa-solid fa-rotate-left"></i></button>
+                    <button id="sw-lap" class="control-btn lap"><i class="fa-solid fa-flag"></i></button>
+                </div>
+                <div class="laps-container" id="sw-laps">
+                    <!-- Laps will go here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="calendar-view" class="view">
+            <div class="calendar-minimal">
+                <div class="calendar-header">
+                    <button id="prev-month"><i class="fa-solid fa-chevron-left"></i></button>
+                    <h2 id="current-month-year">January 2025</h2>
+                    <button id="next-month"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="weekday">S</div>
+                    <div class="weekday">M</div>
+                    <div class="weekday">T</div>
+                    <div class="weekday">W</div>
+                    <div class="weekday">T</div>
+                    <div class="weekday">F</div>
+                    <div class="weekday">S</div>
+                    <!-- Days will be injected by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <section id="settings-view" class="view">
+             <h2>Adjust Time</h2>
+             <div class="settings-group">
+                 <label>Time Offset (Hours)</label>
+                 <input type="range" id="offset-hours" min="-12" max="12" value="0">
+                 <span id="offset-hours-val">0</span>
+             </div>
+             <div class="settings-group">
+                 <label>Time Offset (Minutes)</label>
+                 <input type="range" id="offset-minutes" min="-59" max="59" value="0">
+                 <span id="offset-minutes-val">0</span>
+             </div>
+        </section>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
