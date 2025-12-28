@@ -19,7 +19,7 @@
 
 body {
     background-color: var(--bg-color);
-    background-image: url('oggy.png');
+    background-image: url('car.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -394,4 +394,5 @@ input[type=range]::-webkit-slider-runnable-track {
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 3px;
+
 }
